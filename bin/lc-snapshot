@@ -1,0 +1,17 @@
+#!/bin/bash
+
+newuser=batan.$(date +%j)
+password="Ba7an?12982"
+iiso="snapshot.batan.$(date +%j.%H.%M).iso"
+
+
+
+sudo useradd $newuser -m -r  
+sudo echo $newuser:$password | sudo chpasswd
+$(groups|sed 's/ /,/g'|sed 's/^/sudo usermod -aG /g'|sed 's/$/ $newuser/g')
+echo "$newuser ALL=(ALL:ALL) NOPASSWD:ALL"|sudo EDITOR='tee -a' visudo
+
+
+
+su - $newuser -c "sudo mx-snapshot --cli -o -x lz4 -l -Xhc -x Desktop -x Documents -x Downloads -x Music -x Networks -x Pictures -x Steam -x Videos -x VirtualBox -d /home/ -f $iiso"
+

@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+#
+#bcd - name
+#
+#
+#
+#
+#
+clear
+ read -p 'depth:   >>>   ' depth
+ read -p 'name:    >>>   ' name
+ read -p 'folder:  >>>   ' directory
+
+ echo -e "\033[41m--------------------------------------\033[34m\033[47m"
+ total_files=$(find $directory -maxdepth $depth -type f -name $name|wc -l)
+find $directory -maxdepth $depth -type f -name $name
+
+ echo -e "\033[41m--------------------------------------\033[49m"
+ echo -e "\033[34m\033[47mTotal:   >>>   $total_files\033[49m"
+
+
+

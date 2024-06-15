@@ -1,0 +1,50 @@
+#!/bin/bash
+#   ANSI CODE TEXT #########################################
+Black='\033[0;30m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
+Cyan='\033[0;36m'
+Yellow='\033[1;33m'
+White='\033[1;37m'
+#   ANSI CODE BACKGROUND  ###################################
+BBlue='\e[0;104m'
+BBlack='\e[0;100m'
+RRed='\e[0;100m'
+GGreen='\e[0;100m'
+YYellow='\e[0;100m'
+BBlue='\e[0;100m'
+PPurple='\e[0;100m'
+CCyan='\e[0;100m'
+WWhite='\e[0;100m'
+NC='\033[0m'
+#   CODE ####################################################
+
+# Define source and target directories
+SOURCE_DIR="/home/batan/"
+TARGET_DIR="/media/batan/100/MX"
+
+# Sync from source to target
+rsync -rtDvz "$SOURCE_DIR/1" "$TARGET_DIR/"
+rsync -rtDvz "$SOURCE_DIR/10" "$TARGET_DIR/"
+rsync -rtDvz "$SOURCE_DIR/100" "$TARGET_DIR/"
+rsync -rtDvz "$SOURCE_DIR/do" "$TARGET_DIR/"
+rsync -rtDvz "$SOURCE_DIR/check" "$TARGET_DIR/"
+
+# Sync from target to source
+rsync -rtDvz "$TARGET_DIR/1" "$SOURCE_DIR/"
+rsync -rtDvz "$TARGET_DIR/10" "$SOURCE_DIR/"
+rsync -rtDvz "$TARGET_DIR/100" "$SOURCE_DIR/"
+rsync -rtDvz "$TARGET_DIR/dot" "$SOURCE_DIR/"
+rsync -rtDvz "$TARGET_DIR/check" "$SOURCE_DIR/"
+
+
+
+
+
+
+
+
+
+

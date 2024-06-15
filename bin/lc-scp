@@ -1,0 +1,47 @@
+#!/bin/bash
+#TEMPLATE 
+TMP_SCRIPT=$(mktemp /tmp/countdown_script.XXXXXX)
+cat << 'EOL' > "$TMP_SCRIPT"
+#!/usr/bin/env bash
+Black='\033[0;30m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
+Cyan='\033[0;36m'
+Yellow='\033[1;33m'
+White='\033[1;37m'
+clear
+echo -e "${Black}\033[41mPlease enter [Name of File to be Copied\033[0m"
+read -e -p "   >>>   " -i "/home/batan/" abc
+clear
+local_ip=$(hostname -I | awk '{print $1}')
+
+for i in $(seq 35 40); do
+    current_ip="192.168.1.$i"
+    if [ "$current_ip" != "$local_ip" ] && ping -s90 -i1 -c1 "$current_ip" &> /dev/null; then
+        active_ips+=("$current_ip")
+    fi
+done
+bcd=$(echo $active_ips|awk '{print $1}') 
+
+/usr/bin/scp $abc batan@$bcd:/home/batan/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EOL
+/usr/bin/xfce4-terminal --geometry 120x2+0+0 --hide-menubar --hide-scrollbar --hide-borders --zoom=+2 --color-bg=gray --color-text=blue  -e "sudo -u batan bash $TMP_SCRIPT"
+
+

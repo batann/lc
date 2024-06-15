@@ -1,0 +1,23 @@
+ #! /usr/bin/env sh
+    # Launches Chromium, pre-configured for I2P
+    #
+    CHROMIUM_I2P="$HOME/i2p/chromium"
+    mkdir -p "$CHROMIUM_I2P"
+    /usr/bin/chromium --user-data-dir="$CHROMIUM_I2P" \
+      --proxy-server="http://127.0.0.1:4444" \
+      --proxy-bypass-list=127.0.0.1:7657 \
+      --safebrowsing-disable-download-protection \
+      --disable-client-side-phishing-detection \
+      --disable-3d-apis \
+      --disable-accelerated-2d-canvas \
+      --disable-remote-fonts \
+      --disable-sync-preferences \
+      --disable-sync \
+      --disable-speech \
+      --disable-webgl \
+      --disable-reading-from-canvas \
+      --disable-gpu \
+      --disable-auto-reload \
+      --disable-background-networking \
+      --disable-d3d11 \
+      --disable-file-system $@

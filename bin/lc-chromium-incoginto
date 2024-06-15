@@ -1,0 +1,7 @@
+    #! /usr/bin/env sh
+    # Launches Chromium, pre-configured for I2P
+    #
+    LC-CHROMIUM="$HOME/i2p/lc-chromium"
+    mkdir -p "$LC-CHROMIUM"
+    /usr/bin/lc-chromium --incognito \
+      $@

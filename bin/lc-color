@@ -1,0 +1,27 @@
+    #!/bin/bash
+
+    # tput_colors - Demonstrate color combinations.
+
+    for fg_color in {0..7}; do
+        set_foreground=$(tput setaf $fg_color)
+        for bg_color in {0..7}; do
+            set_background=$(tput setab $bg_color)
+            echo -n $set_background$set_foreground
+            printf ' F:%s B:%s ' $fg_color $bg_color
+        done
+        echo $(tput sgr0)
+    done
+echo ""
+
+echo -e "\033[41m \033[37m Color		Foreground	Background"
+echo -e "\033[49m ========================================"
+echo  "Black		\033[30m	\033[40m"
+echo  "Red		\033[31m	\033[41m"
+echo  "Green		\033[32m	\033[42m"
+echo  "Orange		\033[33m	\033[43m"
+echo  "Blue		\033[34m	\033[44m"
+echo  "Magenta		\033[35m	\033[45m"
+echo  "Cyan		\033[36m	\033[46m"
+echo  "Light gray	\033[37m	\033[47m"
+echo  "Default		\033[39m	\033[49m"
+
