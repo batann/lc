@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Kitty-Custom
+Comment=
+Exec=kitty sh -c "tmux new-session 'ranger' \; splitw -h -p30 'nvim' \; selectp -t0 \; splitw -v -p65 \;"
+Icon=/home/batan/100/icons/kitty.2.icon.128.png
+Path=
+Terminal=false
+StartupNotify=false
