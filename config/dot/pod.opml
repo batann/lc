@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no' ?>
+<opml version="2.0">
+  <head>
+    <title>AntennaPod Subscriptions</title>
+    <dateCreated>20 May 24 05:57:44 +1000</dateCreated>
+  </head>
+  <body>
+    <outline text="ABC News (Australia)" title="ABC News (Australia)" type="rss" xmlUrl="https://podtube.me/rssfeed/UCVgO39Bk5sMo66-6o6Spn6Q" htmlUrl="https://www.youtube.com/channel/UCVgO39Bk5sMo66-6o6Spn6Q" />
+    <outline text="AM" title="AM" type="rss" xmlUrl="https://www.abc.net.au/feeds/8486620/podcast.xml" htmlUrl="https://www.abc.net.au/listen/programs/am/" />
+    <outline text="Analysis" title="Analysis" type="rss" xmlUrl="https://podcasts.files.bbci.co.uk/b006r4vz.rss" htmlUrl="http://www.bbc.co.uk/programmes/b006r4vz" />
+    <outline text="Australia Overnight with Mike Jeffreys" title="Australia Overnight with Mike Jeffreys" type="rss" xmlUrl="https://www.omnycontent.com/d/playlist/88b564ea-a9a6-4751-910a-a5d800019396/4cdcf93f-3dc8-4f32-99cc-a6d60038afb6/04ecac0f-c7b0-4d51-9926-a6d600393af7/podcast.rss" htmlUrl="http://www.2gb.com/" />
+    <outline text="Australian Politics" title="Australian Politics" type="rss" xmlUrl="https://www.theguardian.com/australia-news/series/australian-politics-live/podcast.xml" htmlUrl="https://www.theguardian.com/australia-news/series/australian-politics-live" />
+    <outline text="back from the borderline" title="back from the borderline" type="rss" xmlUrl="https://feeds.acast.com/public/shows/60e8deaefb090f0013116d69" htmlUrl="https://shows.acast.com/back-from-the-borderline/episodes/splitting-in-borderline-personality-disorder-part-1-idealiza" />
+    <outline text="Background Briefing" title="Background Briefing" xmlUrl="http://www.abc.net.au/rn/podcast/feeds/bbing.xml" />
+    <outline text="BBC News" title="BBC News" type="rss" xmlUrl="https://podcast.voice.api.bbci.co.uk/rss/audio/p002vsmz?api_key=Wbek5zSqxz0Hk1blo5IBqbd9SCWIfNbT" htmlUrl="http://www.bbc.co.uk/programmes/p002vsmz" />
+    <outline text="Best of the Left - Leftist Perspectives on Progressive Politics, News, Culture, Economics and Democracy" title="Best of the Left - Leftist Perspectives on Progressive Politics, News, Culture, Economics and Democracy" type="rss" xmlUrl="http://hippiesympathizer.libsyn.com/mp3.rss" htmlUrl="https://www.bestoftheleft.com/listen" />
+    <outline text="Caren Miosga" title="Caren Miosga" type="rss" xmlUrl="http://www.ndr.de/podcast/annewill966.xml" htmlUrl="https://www.ndr.de/podcast/annewill966.html" />
+    <outline text="Citation Needed" title="Citation Needed" type="rss" xmlUrl="https://citationpod.libsyn.com/rss" htmlUrl="http://citationpod.com" />
+    <outline text="Collective Evolution with Joe Martino" title="Collective Evolution with Joe Martino" type="rss" xmlUrl="https://app.kajabi.com/podcasts/2147511253/feed" htmlUrl="https://www.collective-evolution.com/podcasts/collective-evolution-with-joe-martino" />
+    <outline text="Converging Dialogues" title="Converging Dialogues" type="rss" xmlUrl="https://api.substack.com/feed/podcast/1171549.rss" htmlUrl="https://convergingdialogues.substack.com/podcast" />
+    <outline text="Critical Reasoning for Beginners" title="Critical Reasoning for Beginners" type="rss" xmlUrl="http://mediapub.it.ox.ac.uk/feeds/129128/audio.xml" htmlUrl="http://podcasts.ox.ac.uk" />
+    <outline text="Critical Reasoning: A Romp Through the Foothills of Logic" title="Critical Reasoning: A Romp Through the Foothills of Logic" type="rss" xmlUrl="http://mediapub.it.ox.ac.uk/feeds/134974/audio.xml" htmlUrl="https://www.amazon.co.uk/dp/B00MSUX7E6/" />
+    <outline text="CyberWire Daily" title="CyberWire Daily" type="rss" xmlUrl="https://feeds.megaphone.fm/cyberwire-daily-podcast" htmlUrl="https://thecyberwire.com/podcasts/daily-podcast" />
+    <outline text="Daily Telegraph - News Feed" title="Daily Telegraph - News Feed" type="rss" xmlUrl="https://www.omnycontent.com/d/playlist/2fb3740d-3436-44af-8cc0-a91900716aa5/4a0f3dc2-3274-4a9d-bee9-ac2a0052459a/84ca343b-7741-4fa1-b7ff-ac2a0052459a/podcast.rss" htmlUrl="https://www.dailytelegraph.com.au/" />
+    <outline text="Dark Side Of Psychology" title="Dark Side Of Psychology" type="rss" xmlUrl="https://dark-side-of-psychology.podomatic.com/rss2.xml" htmlUrl="https://www.podomatic.com/podcasts/dark-side-of-psychology" />
+    <outline text="Department of Sociology Podcasts" title="Department of Sociology Podcasts" type="rss" xmlUrl="http://mediapub.it.ox.ac.uk/feeds/129156/audio.xml" htmlUrl="http://podcasts.ox.ac.uk" />
+    <outline text="Eavesdrop on Experts" title="Eavesdrop on Experts" type="rss" xmlUrl="https://feeds.megaphone.fm/YLOMM3897716810" />
+    <outline text="FAZ Frühdenker - Die Nachrichten am Morgen" title="FAZ Frühdenker - Die Nachrichten am Morgen" type="rss" xmlUrl="https://fazfruehdenker.podigee.io/feed/mp3" htmlUrl="https://www.faz.net/" />
+    <outline text="General Philosophy" title="General Philosophy" type="rss" xmlUrl="http://mediapub.it.ox.ac.uk/feeds/129131/video.xml" htmlUrl="http://philosophy.hertford.ox.ac.uk/prelims/general.htm" />
+    <outline text="Global News Podcast" title="Global News Podcast" type="rss" xmlUrl="https://podcasts.files.bbci.co.uk/p02nq0gn.rss" htmlUrl="http://www.bbc.co.uk/programmes/p02nq0gn" />
+    <outline text="Insiders" title="Insiders" type="rss" xmlUrl="https://www.abc.net.au/feeds/8618000/podcast.xml" htmlUrl="https://www.abc.net.au/listen/programs/insiders-podcast/" />
+    <outline text="Insiders - Back To You" title="Insiders - Back To You" type="rss" xmlUrl="https://www.abc.net.au/feeds/13818898/podcast.xml" htmlUrl="https://www.abc.net.au/listen/programs/insiders-back-to-you/" />
+    <outline text="KILL TONY" title="KILL TONY" type="rss" xmlUrl="https://feeds.megaphone.fm/killtony" htmlUrl="http://deathsquad.tv" />
+    <outline text="Latest 300 | LSE Public lectures and events | Audio and pdf" title="Latest 300 | LSE Public lectures and events | Audio and pdf" type="rss" xmlUrl="https://www.lse.ac.uk/assets/richmedia/webFeeds/publicLecturesAndEvents_iTunesRssAudioPdfLatest300.xml" htmlUrl="http://www.lse.ac.uk/newsAndMedia/videoAndAudio/channels/publicLecturesAndEvents/" />
+    <outline text="LSE IQ podcast" title="LSE IQ podcast" type="rss" xmlUrl="https://www.lse.ac.uk/assets/richmedia/webFeeds/lseiqpodcast_iTunesStore.xml" htmlUrl="https://www.lse.ac.uk/newsAndMedia/videoAndAudio/channels/lseiqpodcast" />
+    <outline text="LSE: Public lectures and events" title="LSE: Public lectures and events" type="rss" xmlUrl="https://www.lse.ac.uk/assets/richmedia/webFeeds/publicLecturesAndEvents_iTunesStore.xml" htmlUrl="https://www.lse.ac.uk/newsAndMedia/videoAndAudio/channels/publicLecturesAndEvents" />
+    <outline text="Media Watch" title="Media Watch" type="rss" xmlUrl="https://www.abc.net.au/feeds/9863562/podcast.xml" htmlUrl="https://www.abc.net.au/mediawatch/episodes/" />
+    <outline text="Nakedly Examined Music Podcast" title="Nakedly Examined Music Podcast" type="rss" xmlUrl="https://nakedlyexaminedmusic.com/feed/podcast/" htmlUrl="https://nakedlyexaminedmusic.com/podcast-episodes/" />
+    <outline text="Nietzsche on Mind and Nature" title="Nietzsche on Mind and Nature" type="rss" xmlUrl="http://mediapub.it.ox.ac.uk/feeds/129119/audio.xml" htmlUrl="http://www.philosophy.ox.ac.uk/events/conferences/nietzsche_mind_conference" />
+    <outline text="Nightline" title="Nightline" type="rss" xmlUrl="https://feeds.megaphone.fm/ESP4865346059" htmlUrl="https://abcaudio.com/podcasts/nightline/" />
+    <outline text="NPC Update-1 Podcast" title="NPC Update-1 Podcast" type="rss" xmlUrl="https://www.press.org/newsroom/podcast/rss" htmlUrl="https://www.press.org" />
+    <outline text="Open to Debate" title="Open to Debate" type="rss" xmlUrl="https://feeds.megaphone.fm/PNP1207584390" htmlUrl="http://opentodebate.org" />
+    <outline text="Philosophy For Our Times" title="Philosophy For Our Times" type="rss" xmlUrl="https://rss.art19.com/philosophy-for-our-times" htmlUrl="https://art19.com/shows/philosophy-for-our-times" />
+    <outline text="Politics and International Relations Podcasts" title="Politics and International Relations Podcasts" type="rss" xmlUrl="http://mediapub.it.ox.ac.uk/feeds/129066/audio.xml" htmlUrl="http://podcasts.ox.ac.uk" />
+    <outline text="Proceedings of the Aristotelian Society" title="Proceedings of the Aristotelian Society" type="rss" xmlUrl="http://www.aristoteliansociety.org.uk/proceedings/mp3/aspodcasts.xml" htmlUrl="http://www.aristoteliansociety.org.uk/" />
+    <outline text="Psychology Unplugged" title="Psychology Unplugged" type="rss" xmlUrl="https://feeds.buzzsprout.com/1516942.rss" htmlUrl="https://www.buzzsprout.com/1516942" />
+    <outline text="Quartz Obsession" title="Quartz Obsession" type="rss" xmlUrl="https://feeds-origin.megaphone.fm/quartzobsessionpodcast" htmlUrl="https://qz.com/se/quartz-obsession-podcast/" />
+    <outline text="RightsUp: The Oxford Human Rights Hub Podcast" title="RightsUp: The Oxford Human Rights Hub Podcast" type="rss" xmlUrl="https://anchor.fm/s/6f94484/podcast/rss" htmlUrl="https://ohrh.law.ox.ac.uk" />
+    <outline text="Soziopod (Soziologie, Philosophie, soziale Arbeit, Wissenschaft, Pädagogik)" title="Soziopod (Soziologie, Philosophie, soziale Arbeit, Wissenschaft, Pädagogik)" type="rss" xmlUrl="https://feeds.feedburner.com/soziopodaudio" htmlUrl="https://soziopod.de" />
+    <outline text="Stanford Psychology Podcast" title="Stanford Psychology Podcast" type="rss" xmlUrl="https://feeds.buzzsprout.com/1801436.rss" htmlUrl="https://stanfordpsychologypodcast.com" />
+    <outline text="TED Talks Daily" title="TED Talks Daily" type="rss" xmlUrl="https://feeds.feedburner.com/TEDTalks_audio" htmlUrl="https://www.ted.com/talks" />
+    <outline text="TED Talks Daily" title="TED Talks Daily" type="rss" xmlUrl="http://feeds.feedburner.com/TEDTalks_audio" htmlUrl="https://www.ted.com/talks" />
+    <outline text="TED Talks Daily (SD video)" title="TED Talks Daily (SD video)" type="rss" xmlUrl="https://feeds.feedburner.com/TEDTalks_video" htmlUrl="https://www.ted.com/talks" />
+    <outline text="The Bolt Report" title="The Bolt Report" type="rss" xmlUrl="https://www.omnycontent.com/d/playlist/2fb3740d-3436-44af-8cc0-a91900716aa5/db745ae6-d59a-499b-8c35-ac2a00524a74/6d908970-afdb-4a17-a750-ac2a00524a74/podcast.rss" htmlUrl="https://www.skynews.com.au/page/andrew-bolt" />
+    <outline text="The Daily" title="The Daily" type="rss" xmlUrl="https://feeds.simplecast.com/54nAGcIl" htmlUrl="https://www.nytimes.com/the-daily" />
+    <outline text="The Inside Story Podcast" title="The Inside Story Podcast" type="rss" xmlUrl="https://www.omnycontent.com/d/playlist/9c074afa-3313-47e8-b802-a9f900789975/223113c5-ff31-4f9a-b650-ada90106df0f/7c994764-510f-469f-80a3-ada901076c74/podcast.rss" htmlUrl="https://www.aljazeera.com/podcasts/the-inside-story-podcast/" />
+    <outline text="The Oxford Review Podcast" title="The Oxford Review Podcast" type="rss" xmlUrl="https://feed.podbean.com/oxfordreview/feed.xml" htmlUrl="https://oxfordreview.podbean.com" />
+    <outline text="The Partially Examined Life Philosophy Podcast" title="The Partially Examined Life Philosophy Podcast" type="rss" xmlUrl="https://partiallyexaminedlife.libsyn.com/rss" htmlUrl="http://partiallyexaminedlife.com" />
+    <outline text="The World Today" title="The World Today" type="rss" xmlUrl="https://www.abc.net.au/feeds/8547556/podcast.xml" htmlUrl="https://www.abc.net.au/listen/programs/worldtoday/" />
+    <outline text="Therapy Show" title="Therapy Show" type="rss" xmlUrl="https://therapyshow.libsyn.com/rss" htmlUrl="http://therapyshow.com" />
+    <outline text="Today in Focus" title="Today in Focus" type="rss" xmlUrl="https://www.theguardian.com/news/series/todayinfocus/podcast.xml" htmlUrl="https://www.theguardian.com/news/series/todayinfocus" />
+    <outline text="Today, Explained" title="Today, Explained" type="rss" xmlUrl="https://feeds.megaphone.fm/VMP5705694065" htmlUrl="https://www.vox.com/todayexplained" />
+    <outline text="WDR 5 Das philosophische Radio" title="WDR 5 Das philosophische Radio" type="rss" xmlUrl="https://www1.wdr.de/mediathek/audio/wdr5/wdr5-das-philosophische-radio/dasphilosophischeradio100.podcast" htmlUrl="https://www1.wdr.de/mediathek/audio/wdr5/wdr5-das-philosophische-radio/dasphilosophischeradio100.html" />
+    <outline text="Weltspiegel Podcast" title="Weltspiegel Podcast" type="rss" xmlUrl="https://www.swr.de/~podcast/weltspiegel-thema/weltspiegel-podcast-102.xml" htmlUrl="https://www.swr.de/weltspiegel-thema/weltspiegel-podcast-102.html" />
+  </body>
+</opml>
