@@ -1,0 +1,74 @@
+#!/bin/bash
+#TEMPLATE 
+TMP_SCRIPT=$(mktemp /tmp/countdown_script.XXXXXX)
+cat << 'EOL' > "$TMP_SCRIPT"
+#!/usr/bin/env bash
+Black='\033[0;30m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
+Cyan='\033[0;36m'
+Yellow='\033[1;33m'
+White='\033[1;37m'
+tput civis
+clear
+echo -e "\033[47mPlease Select the filesystem needed\033[0m"
+read -p "   >>> 1) MSDOS   >>> 2) GPT    " cde
+clear
+read -p "Please Enter Partition Label   >>>   " bcd
+clear
+echo -e "${Black}\033[47mSelect the usb to format\033[0m"
+options=$(sudo fdisk -l|grep 'dev/sd'|grep -v sda |grep -v sdb|grep -v Disk|cut -c 1-8);
+select disk in ${options[@]};
+do
+clear
+
+
+if [[ $cde -eq 1 ]]; then
+xxx="vfat -v -I -n"
+elif 
+if [[ $cde -eq 2 ]];then
+xxx="ext4 -F -O ^64bit -L"
+else
+	clear 
+	echo -e "You Entered an Invalid Value as the filesystem"
+	exit 1
+	fi
+
+sudo mkfs.$xxx '$bcd' '${disk}1' >>/dev/null ;
+break
+done
+clear
+echo -e "${White}\033[41mUSB $disk has been formated\033[0m"
+read -n1 -p '   >>>   Enter [Any] to exit' lol
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EOL
+/usr/bin/xfce4-terminal --geometry="120x3-100-100" --hide-menubar --hide-scrollbar --hide-borders --zoom=+2 --color-bg=gray --color-text=blue  -e "sudo -u batan bash $TMP_SCRIPT"
+
+

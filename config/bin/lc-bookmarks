@@ -1,0 +1,69 @@
+#!/bin/bash
+Black='\033[0;30m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
+Cyan='\033[0;36m'
+Yellow='\033[1;33m'
+White='\033[1;37m'
+NC='\033[0m'
+###############################################
+clear
+TMP_SCRIPT=$(mktemp /tmp/countdown_script.XXXXXX)
+cat << 'EOL' > "$TMP_SCRIPT"
+###############################################
+#!/usr/bin/env bash
+#   ANSI CODE   ###############################
+Black='\033[0;30m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
+Cyan='\033[0;36m'
+Yellow='\033[1;33m'
+White='\033[1;37m'
+NC='\033[0m'
+###############################################
+export FZF_DEFAULT_OPTS="  --color=fg:#9FB1BC,fg+:#9FB1BC,bg:#2E5266,bg+:#2E5266\
+  --color=hl:#1a7ada,hl+:#9ae6ff,info:#e0e000,marker:#3ee421 \
+  --color=prompt:#1700af,spinner:#F4FFFD,pointer:#F4FFFD,header:#F4FFFD \
+  --color=border:#F7B32B,preview-fg:#9fb1bc,preview-bg:#2e5266 \
+  --color=preview-label:#00857a,label:#f7b32b,query:#d9d9d9 \
+  --border='sharp' --preview-window=right,50%,'wrap' \
+  --padding='2' --margin='4' --prompt='' --marker='->' \
+  --pointer='>>' --separator='─' --scrollbar='│' --info='inline'"
+
+
+
+
+
+
+
+abc=$(wmctrl -l|tail -n1|awk '{print $1}')
+sudo /home/batan/100/bat/./toggle-decorations $abc
+
+transset -i $abc -t
+
+url=$(buku -p -f4 | fzf -m --reverse --preview "buku -p {1}" --preview-window=wrap | cut -f2)
+
+if [ -n "$url" ]; then
+
+	echo "$url" | xclip -selection clipboard &
+	echo "$url" | xargs firefox &
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+EOL
+/usr/bin/xfce4-terminal --zoom=+1 --geometry=120x40+200+200 -e "sudo -u batan bash $TMP_SCRIPT"

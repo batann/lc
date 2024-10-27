@@ -1,0 +1,10 @@
+#!/bin/bash
+
+tmp_script=$(mktemp /tmp/tmp.script.XXXXXX)
+cat << 'EOL' > $tmp_script
+#!/bin/bash
+abc=$((date ; ps -ef)| fzf --bind='ctrl-r:reload(date; ps -ef)'|awk '{print $2}') 
+kill -9 $abc
+EOL
+sudo chmod a+x $tmp_script
+xfce4-terminal -e "sudo -u batan bash $tmp_script"

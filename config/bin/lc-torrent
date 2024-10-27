@@ -1,0 +1,62 @@
+#!/bin/bash
+Black='\033[0;30m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
+Cyan='\033[0;36m'
+Yellow='\033[1;33m'
+White='\033[1;37m'
+NC='\033[0m'
+###############################################
+TMP_SCRIPT=$(mktemp /tmp/countdown_script.XXXXXX)
+cat << 'EOL' > "$TMP_SCRIPT"
+###############################################
+#!/usr/bin/env bash
+#   ANSI CODE   ###############################
+Black='\033[0;30m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
+Cyan='\033[0;36m'
+Yellow='\033[1;33m'
+White='\033[1;37m'
+NC='\033[0m'
+###############################################
+echo -e "${NC}"
+#   get terminal window id
+abc=$(wmctrl -l|tail -n1|awk '{print $1}')
+#   toggle off decorations
+#   sudo /home/batan/100/bat/./toggle-decorations $abc
+#   set opacity
+#   transset -i $abc -t
+abc=$(ls -t ~/Downloads/|head -n1)
+echo -e "Is this the download file:"
+echo -e $abc
+echo -e "   >>> 1) Yes"
+echo -e "   >>> 2) No"
+tput civis
+read -p "   >>>   " xxx
+
+if [[ $xxx -eq 2 ]]; 
+then
+echo "Exiting... Press [Any] to continue...."
+read  -n1 ppp
+exit 0
+else
+clear
+
+# Echo the stored variable
+/usr/bin/aria2c /home/batan/Downloads/$abc
+
+fi
+
+EOL
+/usr/bin/xfce4-terminal --hide-menubar --hide-scrollbar --hide-borders --geometry="120x8-0+0" -e "sudo -u batan bash $TMP_SCRIPT"
+
+
+
+
+
+

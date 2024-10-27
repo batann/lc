@@ -1,0 +1,145 @@
+#!/bin/bash
+
+# Variables required for terminal / Part I
+total_height=$(xdpyinfo | awk '/dimensions/{print $2}' | cut -d 'x' -f 2)
+desired_height=$((total_height * 20 / 100))
+
+# Define the path to the script for rerunning
+SCRIPT_PATH="/usr/bin/lc-task"
+
+# Create a temporary Script / Part II
+TMP_SCRIPT=$(mktemp /tmp/countdown_script.XXXXXX)
+cat << 'EOL' > "$TMP_SCRIPT"
+#!/usr/bin/env bash
+#############################################################
+Black='\033[0;30m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
+Cyan='\033[0;36m'
+Yellow='\033[1;33m'
+White='\033[1;37m'
+abc=''
+bcd='PC'
+def=''
+clear
+echo -e "    \033[30m\033[43mTaskwarrior most common commands simplified :\033[0m"
+echo -e "\033[32m=====================================================\033[0m"
+# List commands to be displayed
+echo -e "${Cyan}   >>>${White}   1${Cyan})\033[37mAdd new Tasks to existing \033[0m"
+echo -e "${Cyan}   >>>${White}   2${Cyan})\033[31mMark existing Tasks as Done\033[0m"
+echo -e "${Cyan}   >>>${White}   3${Cyan})\033[32mAssign Project \033[0m"
+echo -e "${Cyan}   >>>${White}   4${Cyan})\033[33mAssign due date and time\033[0m"
+echo -e "${Cyan}   >>>${White}   5${Cyan})\033[34mAdd new or edit existing tasknotes\033[0m"
+echo -e "${Cyan}   >>>${White}   9${Cyan})\033[31mShopping List \033[0m"
+echo -e "\033[32m=====================================================\033[0m"
+tput civis
+read -p '   >>>     ' abc
+
+### USER SELECTION 1 ##############################################
+if [[ $abc -eq 1 ]]; then
+  while :; do
+    clear
+    tput cup 9 0
+    echo -e "${Blue}==============   \033[30m\033[43mPENDING TASKS${NC}${Blue}   ==============${NC}"
+    tput cup 10 0
+    task
+    tput cup 0 0
+    echo -e "\033[30m\033[43mAdding tasks to be Done to Taskwarrior\033[0m"
+    echo -e "${Blue}===============================================${NC}"
+    echo -e "\033[33m"
+    read -p 'description   >>>   ' a1
+    if [[ -z $a1 ]]; then
+      exec bash "$SCRIPT_PATH"
+    fi
+    read -e -p 'project       >>>   ' -i "$bcd" a2
+    read -p 'priority      >>>   ' a3
+    read -e -p 'tag           >>>   ' -i "$(date +%j)" a4
+    read -e -p 'due           >>>   ' -i "$(date +%Y-%m-%d)" user_input
+    tput cup 7 0
+    tput el
+    read -e -p 'due           >>>   ' -i "${user_input}T23:30:00" a5
+    task add "$a1" project:"$a2" urgency:"$a3" +"$a4" due:"$a5" && tasknote $(task |grep -v "ID"|awk '{print $1}'|tail -n1)
+    echo "description: $a1, project: $a2, priority: $a3, tag: $a4, due: $a5" >> /home/$USER/.task/variables
+  done
+  exec bash "$SCRIPT_PATH"
+
+### USER SELECTION 2 ##############################################
+elif [[ $abc -eq 2 ]]; then
+  while :; do
+    clear
+    tput cup 9 0
+    echo -e "${White}\033[43mPENDING TASKS${NC}${Blue}      ===================${NC}"
+    tput cup 10 0
+    task
+    tput cup 0 0
+    echo -e "${White}\033[43mMark existing Tasks as Done\033[0m"
+    echo -e "${Blue}======================================${White}"
+    echo -e ""
+    
+    # Prompt the user for Task ID or 'q' to quit
+    read -p 'Enter [Task ID] or "q" to return to the main menu >>> ' task_id
+    
+    # Check if the user wants to quit and return to the main menu
+    if [[ $task_id == "q" ]]; then
+      echo "Returning to the main menu..."
+      sleep 1
+      exec bash "$SCRIPT_PATH"
+    fi
+    
+    # Ensure the Task ID is not empty
+    if [[ -z $task_id ]]; then
+      echo "No Task ID entered. Please enter a valid Task ID or 'q' to quit."
+      sleep 2
+      continue
+    fi
+    
+    # Validate the Task ID
+    if ! task "$task_id" info &>/dev/null; then
+      echo "Invalid Task ID. Please try again."
+      sleep 2
+      continue
+    fi
+    
+    # Mark the task as done
+    task "$task_id" done
+    echo "Task $task_id marked as done."
+    sleep 2
+  done
+
+  exec bash "$SCRIPT_PATH"
+
+### USER SELECTION 9 ##############################################
+elif [[ $abc -eq 9 ]]; then
+  while :; do
+    clear
+    tput cup 9 0
+    echo -e "${Blue}==============   \033[30m\033[43mPENDING TASKS${NC}${Blue}   ==============${NC}"
+    tput cup 10 0
+    task project:buy
+    tput cup 0 0
+    echo -e "\033[30m\033[43mAdding Shopping List to Taskwarrior\033[0m"
+    echo -e "${Blue}===============================================${NC}"
+    echo -e "\033[33m"
+    read -p 'description   >>>   ' a1
+    if [[ -z $a1 ]]; then
+      exec bash "$SCRIPT_PATH"
+    fi
+    read -e -p 'project       >>>   ' -i "buy" a2
+    read -p 'priority      >>>   ' a3
+    read -e -p 'tag           >>>   ' -i "$(date +%j)" a4
+    user_input=$(date +%Y-%m-%d --date="14 days")
+    tput cup 7 0
+    tput el
+    read -e -p 'due           >>>   ' -i "${user_input}T23:30:00" a5
+    task add "$a1" project:"$a2" urgency:"$a3" +"$a4" due:"$a5" && tasknote $(task |grep -v "ID"|awk '{print $1}'|tail -n1)
+    echo "description: $a1, project: $a2, priority: $a3, tag: $a4, due: $a5" >> /home/$USER/.task/variables
+  done
+  exec bash "$SCRIPT_PATH"
+fi
+EOL
+
+# Launch a terminal window with the desired height and run temp SH
+xfce4-terminal --geometry 120x${desired_height}+0+0 -e "sudo -u batan bash $TMP_SCRIPT"
+

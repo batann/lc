@@ -1,0 +1,34 @@
+#!/bin/bash
+#############################################################
+#name:
+#description:
+#author: Fairdinkum Batan
+#date:
+#############################################################
+clear
+echo -e "\033[37m\033[41mMount Remote to Public...\033[0m"
+read -e -p '   >>>   1) Yes 2) No   >>>   ' -i '1' xxx
+clear
+if [[ $xxx -eq 1 ]]; then
+
+local_ip=$(hostname -I | awk '{print $1}')
+
+for i in $(seq 35 40); do
+    current_ip="192.168.1.$i"
+    if [ "$current_ip" != "$local_ip" ] && ping -s90 -i1 -c1 "$current_ip" &> /dev/null; then
+        active_ips+=("$current_ip")
+    fi
+done
+abc=$(echo $active_ips|awk '{print $1}')
+sudo sshfs -o allow_other batan@$abc:/ /home/batan/Public/
+clear
+echo -e "\033[0m===================================================="
+echo -e "\033[37m\033[41mScript run successfully. Your remote ip address is\033[0m\033[34m"
+echo -e "$abc"
+echo -e "\033[0m===================================================="
+
+echo -e "\033[37m\033[41mContent of /home/battan/Public\033[0m\033[33m"
+ls /home/batan/Public/
+echo -e "\033[0m===================================================="
+
+fi

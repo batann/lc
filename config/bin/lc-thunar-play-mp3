@@ -1,0 +1,10 @@
+#!/bin/bash
+#############################################################
+clear
+xdotool getactivewindow windowsize 1600 80
+xdotool getactivewindow windowposition 2000 20
+transset -t 1 -i $(xdotool getactivewindow)
+/usr/bin/lc-toggle-decorations $(xdotool getactivewindow)
+/usr/bin/play $1
+
+

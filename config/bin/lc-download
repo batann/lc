@@ -1,0 +1,28 @@
+#!/bin/bash
+clear
+xdotool getactivewindow windowsize 1000 150
+xdotool getactivewindow windowmove 2000 50
+clear
+	counter="1"
+	while :;
+	do
+	read -p "Enter URL Nu $counter   >>>    " bcd
+	((counter++))
+	input="$input $bc"
+	clear
+    if [[ -z $bcd ]];then
+		break
+	fi
+done
+clear
+echo -e "======================================="
+echo -e "   >>> 1) Download mp3"
+echo -e "   >>> 2) Download mp4"
+echo -e "======================================="
+read -n1 -p "   >>>        " xxx
+if [[ $xxx == 1 ]];then
+yt-dlp -x --audio-format mp3 --restrict-filenames $input
+else
+yt-dlp --restrict-filenames $input
+fi
+

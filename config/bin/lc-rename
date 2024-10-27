@@ -1,0 +1,59 @@
+#!/bin/bash
+
+clear
+ls
+echo -e "\033[34m============================================\033[0m"
+echo -e "\033[37mRename all files?\033[0m"
+echo -e "\033[31m   >>> " "\033[37m1\033[34m)" "\033[37m Yes\033[0m"
+echo -e "\033[31m   >>> " "\033[37m2\033[34m)" "\033[37m No \033[0m"
+echo -e "\033[34m============================================\033[0m"
+read -p ' >>>   ' abc
+if [[ $abc == "2" ]]; then
+	clear
+	exit 0
+else
+	clear
+	rename  's/!//g' *
+	rename  's/&//g' *
+	rename  's/,//g' *
+	rename 's/\[.*\]//g' *
+	rename  's/\(.*\)//g' *
+	rename  's/\".*\"//g' *
+	rename 's/_\./\./g' *
+fi
+clear
+ls
+echo -e "\033[34m============================================\033[0m"
+echo -e "\033[37mReplace whitespaces?\033[0m"
+echo -e "\033[31m   >>> " "\033[37m1\033[34m)" "\033[37m Yes\033[0m"
+echo -e "\033[31m   >>> " "\033[37m2\033[34m)" "\033[37m No \033[0m"
+echo -e "\033[34m============================================\033[0m"
+read -p ' >>>   ' abc
+if [[ $abc == "2" ]]; then
+	clear
+echo -e "\033[47mFiles Successfully renamed!\033[0m"
+	exit 0
+fi
+clear
+rename  's/ /_/g' *
+clear
+echo -e "\033[34m============================================\033[0m"
+echo -e "\033[47mFiles Successfully renamed!\033[0m"
+echo -e "\033[34m============================================\033[0m"
+ls
+echo -e "\033[34m============================================\033[0m"
+echo -e "\033[32mRemove meta-data?\033[34m"
+echo -e "\033[31m   >>> " "\033[37m1\033[34m)" "\033[37m Yes\033[0m"
+echo -e "\033[31m   >>> " "\033[37m2\033[34m)" "\033[37m No \033[0m"
+echo -e "\033[34m============================================\033[0m"
+read -p '   >>>   ' bcd
+if [[ $abc == "2" ]]; then
+	clear
+echo -e "\033[47mFiles Successfully renamed!\033[0m"
+	exit 0
+fi
+clear
+mat2 --inplace *
+clear
+echo -e "\033[0mRenamed and removed metadata inplace"
+

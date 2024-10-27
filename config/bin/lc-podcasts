@@ -1,0 +1,9 @@
+#!/bin/bash
+clear
+
+
+echo -e "\033[30m\033[47mRunning lc-get-podcasts on \033[31m/home/batan/.config/lc-mashpodder"
+echo -e "\033[30m\033[47m and updateing your podcast episodes to current date  \033[0m "
+
+sudo -u $USER bash /home/batan/.config/lc-mashpodder/lc-get-podcasts
+

@@ -1,0 +1,159 @@
+#!/bin/bash
+Black='\033[0;30m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
+Cyan='\033[0;36m'
+Yellow='\033[1;33m'
+White='\033[1;37m'
+NC='\033[0m'
+###############################################
+clear
+TMP_SCRIPT=$(mktemp /tmp/countdown_script.XXXXXX)
+cat << 'EOL' > "$TMP_SCRIPT"
+###############################################
+#!/usr/bin/env bash
+#   ANSI CODE   ###############################
+Black='\033[0;30m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
+Cyan='\033[0;36m'
+Yellow='\033[1;33m'
+White='\033[1;37m'
+NC='\033[0m'
+###############################################
+
+#fff=$(wmctrl -l|grep Terminal|tail -n1|awk '{print $1}')
+#toggle-decorations $fff
+#transset -t 0.6 -i $fff
+sudo rm *.log res* *.tmp .*.bak.* *.bak.* *.part *.ytdl &>/tmp/table.report.txt
+
+clear
+
+
+if [[ -d /home/batan/1/SH/ ]]; then
+	a1=$(ls /home/batan/1/SH/ |wc -l)
+	mv *.sh /home/batan/1/SH/ &>/tmp/table.report.txt
+	aa1=$(ls /home/batan/1/SH/ |wc -l)
+	else
+	a1="0"
+	mkdir /home/batan/1/SH &>/tmp/table.report.txt
+	mv .sh /home/batan/1/SH &>/tmp/table.report.txt
+	aa1=$(ls /home/batan/1/SH/ |wc -l)
+fi
+
+
+if [[ -d /home/batan/1/txt/ ]]; then
+	a2=$(ls /home/batan/1/txt/ |wc -l)
+	mv *.txt /home/batan/1/txt  &>/tmp/table.report.txt
+	aa2=$(ls /home/batan/1/txt/ |wc -l)
+	else
+	a2="0"
+	mkdir /home/batan/1/txt
+	mv .txt /home/batan/1/txt  &>/tmp/table.report.txt
+	aa2=$(ls /home/batan/1/txt/ |wc -l)
+fi
+
+if [[ -d /home/batan/1/wiki/ ]]; then
+	a3=$(ls /home/batan/1/wiki/ |wc -l)
+	mv *.wiki /home/batan/1/wiki  &>/tmp/table.report.txt
+	aa3=$(ls /home/batan/1/wiki/ |wc -l)
+	else
+	a3="0"
+	mkdir /home/batan/1/wiki
+	mv .wiki /home/batan/1/wiki  &>/tmp/table.report.txt
+	aa3=$(ls /home/batan/1/wiki/ |wc -l)
+fi
+
+if [[ -d /home/batan/1/html/ ]]; then
+	a4=$(ls /home/batan/1/html/ |wc -l)
+	mv *.html /home/batan/1/html &>/tmp/table.report.txt
+	aa4=$(ls /home/batan/1/html/ |wc -l)
+	else
+	a4="0"
+	mkdir /home/batan/1/html
+	mv .html /home/batan/1/html &>/tmp/table.report.txt
+	aa4=$(ls /home/batan/1/html/ |wc -l)
+fi
+
+if [[ -d /home/batan/1/opml/ ]]; then
+	a5=$(ls /home/batan/1/opml/ |wc -l)
+	mv *.opml /home/batan/1/opml &>/tmp/table.report.txt
+	aa5=$(ls /home/batan/1/opml/ |wc -l)
+	else
+	a5="0"
+	mkdir /home/batan/1/opml
+	mv .opml /home/batan/1/opml &>/tmp/table.report.txt
+	aa5=$(ls /home/batan/1/opml/ |wc -l)
+fi
+
+if [[ -d /home/batan/1/mp3/ ]]; then
+	a6=$(ls /home/batan/1/mp3/ |wc -l)
+	mv *.mp3 /home/batan/1/mp3 &>/tmp/table.report.txt
+	aa6=$(ls /home/batan/1/mp3/ |wc -l)
+	else
+	a6="0"
+	mkdir /home/batan/1/mp3
+	mv .mp3 /home/batan/1/mp3 &>/tmp/table.report.txt
+	aa6=$(ls /home/batan/1/mp3/ |wc -l)
+fi
+
+if [[ -d /home/batan/1/mp4/ ]]; then
+	a7=$(ls /home/batan/1/mp4/ |wc -l)
+	mv *.mp4 /home/batan/1/mp4 &>/tmp/table.report.txt
+	aa7=$(ls /home/batan/1/mp4/ |wc -l)
+	else
+	a7="0"
+	mkdir /home/batan/1/mp4
+	mv .mp4 /home/batan/1/mp4 &>/tmp/table.report.txt
+	aa7=$(ls /home/batan/1/mp4/ |wc -l)
+fi
+
+if [[ -d /home/batan/1/img/ ]]; then
+	a8=$(ls /home/batan/1/img/ |wc -l)
+	mv *.jpg *.jpeg *.png *.webm /home/batan/1/img &>/tmp/table.report.txt
+	aa8=$(ls /home/batan/1/img/ |wc -l)
+	else
+	a8="0"
+	mkdir /home/batan/1/img
+	mv *.jpg *.jpeg *.png *.webm /home/batan/1/img &>/tmp/table.report.txt
+	aa8=$(ls /home/batan/1/img/ |wc -l)
+fi
+if [[ -d /home/batan/1/tar/ ]]; then
+	a9=$(ls /home/batan/1/tar/ |wc -l)
+	mv *.tar *.tar.gz *.zip *.7z *.xz /home/batan/1/tar &>/tmp/table.report.txt
+	aa9=$(ls /home/batan/1/tar/ |wc -l)
+	else
+	a9="0"
+	mkdir /home/batan/1/tar
+	mv *.tar *.tar.gz *.zip *.7z *.xz /home/batan/1/tar &>/tmp/table.report.txt
+	aa9=$(ls /home/batan/1/tar/ |wc -l)
+fi
+
+tput civis
+echo -e "${Cyan}+${Purple}------------------${Cyan}+"
+echo -e "${Purple}|${Green}Init ${Purple}|${Green}Dir ${Purple}  |${Green}Now ${Purple} |"
+echo -e "${Cyan}+${Purple}-----${Cyan}+${Purple}------${Cyan}+${Purple}-----${Cyan}+"
+echo -e "${Purple}|${Green}$a1${Purple}   |${Green} sh ${Purple}  |${Green}$aa1 ${Purple}  |"
+echo -e "|${Green}$a2 ${Purple}   |${Green} txt  ${Purple}|${Green}$aa2  ${Purple}  |"
+echo -e "|${Green}$a3  ${Purple}  |${Green} wiki ${Purple}|${Green}$aa3   ${Purple} |"
+echo -e "|${Green}$a4    ${Purple}|${Green} html ${Purple}|${Green}$aa4   ${Purple} |"
+echo -e "|${Green}$a5    ${Purple}|${Green} opml ${Purple}|${Green}$aa5    ${Purple}|"
+echo -e "|${Green}$a6    ${Purple}|${Green} mp3  ${Purple}|${Green}$aa6    ${Purple}|"
+echo -e "|${Green}$a7    ${Purple}|${Green} mp4  ${Purple}|${Green}$aa7    ${Purple}|"
+echo -e "|${Green}$a8    ${Purple}|${Green} img  ${Purple}|${Green}$aa8    ${Purple}|"
+echo -e "|${Green}$a9    ${Purple}|${Green} tar  ${Purple}|${Green}$aa9    ${Purple}|"
+echo -e "${Cyan}+${Purple}-----${Cyan}+${Purple}------${Cyan}+${Purple}-----${Cyan}+${Purple}"
+echo -e "| ${White}     REPORT ${Purple}     |"
+echo -e "${Cyan}+${Purple}------------------${Cyan}+"
+echo -e "|${White}Enter${Cyan}[${Yellow}Any${Cyan}]${White}to Exit${Purple} |"
+echo -e "${Cyan}+${Purple}------------------${Cyan}+"
+read -n1 ooo
+
+EOL
+/usr/bin/xterm -geom 24x20+800+400 -e bash -c "sudo -u batan bash $TMP_SCRIPT"
+
+

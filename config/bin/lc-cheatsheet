@@ -1,0 +1,17 @@
+#!/bin/bash
+clear
+# check depends
+dpkg -s smenu >/dev/null
+if [[ ! $? == "0" ]];
+then
+sudo apt install smenu
+fi
+dpkg -s stterm >/dev/null
+if [[ ! $? == "0" ]];
+then
+sudo apt install stterm
+fi
+
+
+st less /home/batan/.config/cheatsheets/$(ls /home/batan/.config/cheatsheets/|smenu -c -n10 -m "Available Cheatsheets" )
+

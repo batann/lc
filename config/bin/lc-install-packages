@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# File containing the list of packages
+PACKAGE_FILE="packages.txt"
+
+# Check if the package file exists
+if [ ! -f "$PACKAGE_FILE" ]; then
+    echo "Package file not found!"
+    exit 1
+fi
+
+# Use fzf to select packages
+selected_packages=$(cat "$PACKAGE_FILE" | fzf --multi --prompt="Select packages: ")
+
+# Check if any packages were selected
+if [ -z "$selected_packages" ]; then
+    echo "No packages selected."
+    exit 1
+fi
+
+# Ask user for the package manager choice
+echo "Choose the package manager:"
+echo "1) apt-get"
+echo "2) pacman"
+read -p "Enter choice (1/2): " choice
+
+case $choice in
+    1)
+        # Run apt-get install with selected packages
+        echo "Running: sudo apt-get install $selected_packages"
+        sudo apt-get install $selected_packages
+        ;;
+    2)
+        # Run pacman -Sy with selected packages
+        echo "Running: sudo pacman -Sy $selected_packages"
+        sudo pacman -Sy $selected_packages
+        ;;
+    *)
+        echo "Invalid choice."
+        exit 1
+        ;;
+esac
+

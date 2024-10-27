@@ -1,0 +1,10 @@
+#!/bin/bash
+system_wide_filelist=''
+user_filelist=''
+if [ -r /etc/cdg_paths ]; then
+   system_wide_filelist=$(lc-cd-cuts-global-echo /etc/cdg_paths)
+fi
+if [ -r ~/.lc-cd ]; then
+   user_filelist=$(/usr/bin/lc-cd-cuts-list ~/.lc-cd)
+fi
+echo -e "$system_wide_filelist\n$user_filelist" | sed '/^\s*$/d'

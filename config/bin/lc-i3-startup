@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# My i3 starup script
+# setup displays
+xrandr --output VGA-1 --right-of HDMI-1
+
+# Bind Left Control to CapsLock-on-push and bind Esc-key to CapsLock-on-hold as well
+xmodmap -e "clear lock"
+xmodmap -e "remove Control = Control_L"
+xmodmap -e "keycode 66 = Control_L"
+xmodmap -e "add Control = Control_L"
+
+#Setup google task and calendar credentials if needed
+if [[ ! -f /home/batan/.cache/calendar.vim/credentials.vim ]]; then
+	mkdir -p /home/batan/.cache/calendar.vim 
+ sudo cp /home/batan/dot/credentials.vim ~/.cache/calendar.vim/credentials.vim
+fi
+
+# Start 5min interval rotating backgrounds
+for i in $(find /usr/share/backgrounds -maxdepth 1 -type f -name '*.png');do feh --bg-scale $i && sleep 5m;done &
+
+

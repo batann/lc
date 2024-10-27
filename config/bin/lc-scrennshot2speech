@@ -1,0 +1,58 @@
+#!/bin/bash
+if [[ ! -d /home/batan/tts/ ]]; then
+	mkdir -p /home/batan/tts/
+fi
+if [[ ! -d /home/batan/Music/tts-mp3 ]]; then
+mkdir -p /home/batan/Music/tts-mp3/
+fi
+xdotool getactivewindow windowsize 1400 60
+ID=$(wmctrl -l|grep Terminal|tail -n1|awk '{print $1 }')
+/usr/bin/transset -i $ID -t 0.4>>/dev/null
+/usr/bin/lc-toggle-decorations $ID>>/dev/null
+
+
+counter="1"
+# Function to handle errors and exit the script
+error_exit() {
+  echo "Error: $1" >&2
+  exit 1
+}
+
+# Check if Tesseract is installed
+if ! command -v tesseract &> /dev/null; then
+  error_exit "Tesseract is not installed. Please install tesseract-ocr."
+fi
+
+# Get the directory path from the script location
+directory=$(pwd)
+
+# Define a placeholder for the new file name (assuming single-character naming)
+new_file="X"  # Replace with a more descriptive pattern if needed
+
+# Use inotifywait to monitor for file creation events
+while true; do
+  inotifywait -e create -q "$directory"
+
+  # Check if a file was created successfully
+  if [ $? -eq 0 ]; then
+    # Get the actual name of the newly created file
+    new_file=$(ls -t "$directory" | head -n 1)  # Get the latest file
+
+    # Validate the file extension (optional, adjust as needed)
+    if [[ ! "$new_file" =~ \.(jpg|png|jpeg|tiff)$ ]]; then
+      echo "Ignoring non-image file: $new_file"
+      continue  # Skip non-image files
+    fi
+
+    # Construct the full output file path (replace 'output_prefix' if needed)
+	output_file=$(date +%j).$counter
+
+    # Execute Tesseract with placeholders replaced
+    tesseract "$directory/$new_file" "$output_file" &> /dev/null || error_exit "Tesseract failed to extract text."
+    ((counter++))
+    echo "Text extracted from '$new_file' and saved to '$output_file'"
+	/home/batan/.local/bin/edge-tts -f $output_file.txt --write-media=/home/batan/Music/tts-mp3/$output_file.mp3
+/usr/bin/play /home/batan/Music/tts-mp3/$output_file.mp3
+  fi
+done
+

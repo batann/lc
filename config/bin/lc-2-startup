@@ -1,0 +1,55 @@
+#!/bin/bash
+###   IN case the google calendar and google tasknote credentials were removed from cache ###################################
+if [[ ! -d /home/batan/.cache/calendar.vim/ ]]; then
+	echo -e "\033[31mcalendar.vim \033[34mdirectory does not exist\033[0m"
+mkdir -p /home/batan/.cache/calendar.vim/
+fi
+###   IN case the google calendar and google tasknote credentials were removed from cache ###################################
+if [[ ! -f /home/batan/.cache/calendar.vim/credentials.vim ]]; then
+	echo -e "\033[31mcredentilas.vim file \033[36mdoes not exist\033[0m"
+cp /home/batan/dot/credentials/tel.petar.credentials.vim /home/batan/.cache/calendar.vim/credentials.vim
+fi
+###   BIND Esc to CapsLock and bind LeftCtrl to CapsLock as well ######################
+/usr/bin/lc-caps
+xmodmap -e "clear lock"
+xmodmap -e "remove Control = Control_L"
+xmodmap -e "keycode 66 = Control_L"
+xmodmap -e "add Control = Control_L"
+xcape -e "Control_L=Escape"
+
+###   EXPORTING LC-FZF-layout   ########################################################
+
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+ --color=fg:#195190,bg:#121212,hl:#788a9c
+ --color=fg+:#cccccc,bg+:#195190,hl+:#99c2ff
+ --color=info:#d9b309,prompt:#b83737,pointer:#af5fff
+ --color=marker:#ffe87f,spinner:#af5fff,header:#b83737'
+
+###   Renewing bin files   #############################################################
+
+if [[ -f /home/batan/dot/bin.tar.gz ]];
+then
+	sudo rm /home/batan/dot/bin.tar.gz
+	cd /home/batan/dot/bin/
+	tar vfcz bin.tar.gz lc-*
+	 mv /home/batan/dot/bin/bin.tar.gz /home/batan/dot/bin.tar.gz
+
+
+sudo tar vfxz /home/batan/dot/bin.tar.gz --directory /usr/bin/
+for i in $(tar list -f /home/batan/dot/bin.tar.gz);do sudo chmod +x /usr/bin/$i;done
+clear
+echo -e ${Purple}"=================================="${GGreen}
+tar list -f /home/batan/dot/bin.tar.gz
+echo ${NC}
+else
+clear
+echo "Exiting...."
+fi
+for i in $(ls /home/batan/.config/dot/);
+do
+	cp 
+
+
+source ~/.bashrc
+
+

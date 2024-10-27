@@ -1,0 +1,27 @@
+#!/bin/bash
+
+clear
+echo -e "\033[37mEnter archive title!\033[0m"
+read -e -p '   >>>   ' xabc
+abc=$xabc.tar.gz
+echo -e "\033[38mNow the directories\033[0m"
+echo -e "==========================================="
+echo -e ""
+while :;
+do
+read -e -p '   >>>   ' -i '/home/batan/' bcd
+if [[ "$bcd" == "/home/batan/" ]]; then
+	break
+	else
+		input="$input $bcd "
+fi
+		done
+
+		# Calculate the total size of the input files and directories
+total_size=$(du -sb $input | awk '{sum += $1} END {print sum}')
+
+# Create the tar.gz archive with a progress bar
+tar cf - $input | pv -s $total_size | xz -9 > "$abc"
+
+# Notify the user of completion
+echo -e "\033[32mArchive created successfully: $abc\033[0m"
