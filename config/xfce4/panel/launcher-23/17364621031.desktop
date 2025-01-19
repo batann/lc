@@ -1,0 +1,19 @@
+[Desktop Entry]
+Name=Windsurf
+Comment=Tomorrow's Editor, Today.
+GenericName=Text Editor
+Exec=/usr/share/windsurf/windsurf %F
+Icon=windsurf
+Type=Application
+StartupNotify=false
+StartupWMClass=Windsurf
+Categories=TextEditor;Development;IDE;
+MimeType=application/x-windsurf-workspace;
+Actions=new-empty-window;
+Keywords=vscode;
+X-XFCE-Source=file:///usr/share/applications/windsurf.desktop
+
+[Desktop Action new-empty-window]
+Name=New Empty Window
+Exec=/usr/share/windsurf/windsurf --new-window %F
+Icon=windsurf

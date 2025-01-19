@@ -1,0 +1,18 @@
+[Desktop Entry]
+Categories=AudioVideo;Recorder;
+Name=Media Downloader
+Name[en_US]=Media Downloader
+Comment=Downloads Online Media Files
+Comment[en_US]=Downloads Online Media Files
+GenericName=Media downloader tool
+Exec=media-downloader
+Icon=media-downloader
+StartupWMClass=media-downloader
+Keywords=download;youtube-dl;media;videos;music;
+NoDisplay=false
+StartupNotify=true
+Terminal=false
+Type=Application
+X-KDE-SubstituteUID=false
+X-Desktop-File-Install-Version=0.26
+X-XFCE-Source=file:///usr/share/applications/media-downloader.desktop

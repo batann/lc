@@ -1,0 +1,25 @@
+[Desktop Entry]
+Version=1.0
+Name=Ungoogled Chromium
+GenericName=Web Browser
+Comment=Access the Internet
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/chromium --file-forwarding io.github.ungoogled_software.ungoogled_chromium @@u %U @@
+StartupWMClass=chromium-browser
+StartupNotify=true
+Terminal=false
+Icon=io.github.ungoogled_software.ungoogled_chromium
+Type=Application
+Categories=Network;WebBrowser;WebDevelopment;Viewer;
+Keywords=chrome;internet;browser;chromium;google;ungoogled;
+MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;
+Actions=new-window;new-private-window;
+X-Flatpak=io.github.ungoogled_software.ungoogled_chromium
+X-XFCE-Source=file:///var/lib/flatpak/app/io.github.ungoogled_software.ungoogled_chromium/x86_64/stable/61229fedc61f41215f92ea9297ea6ac874f4b499bf593f2b3c0cae673f076ff6/export/share/applications/io.github.ungoogled_software.ungoogled_chromium.desktop
+
+[Desktop Action new-window]
+Name=New Window
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/chromium --file-forwarding io.github.ungoogled_software.ungoogled_chromium @@u %U @@
+
+[Desktop Action new-private-window]
+Name=New Incognito Window
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/chromium --file-forwarding io.github.ungoogled_software.ungoogled_chromium --incognito @@u %U @@

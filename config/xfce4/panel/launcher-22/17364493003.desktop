@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=surf tabbed
+Comment=
+Exec=/usr/bin/lc-surf file:///home/batan/10/html/homepage/d.html https://duckduckgo.com
+Icon=/home/batan/100/icons/icon-exxplor-96.png
+Path=
+Terminal=false
+StartupNotify=false

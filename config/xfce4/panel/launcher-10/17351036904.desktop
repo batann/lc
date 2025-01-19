@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=GPT
+Comment=
+Exec=surf https://chatgpt.com/
+Icon=/home/batan/100/icons/03icon.gpt.240.png
+Path=
+Terminal=false
+StartupNotify=false

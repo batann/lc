@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=lc-gutenberg
+Comment=
+Exec=/usr/bin/lc-gutenberg
+Icon=/home/batan/100/icons/240x120_icon.png
+Path=
+Terminal=false
+StartupNotify=false
