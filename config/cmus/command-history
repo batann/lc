@@ -1,0 +1,10 @@
+set status_display_program=cmusfm
+add /media/batan/100/Music/
+clear
+add Music/
+q
+add /media/batan/100/Music/ALBUM/
+add /media/batan/100/Music/XavierNaido/
+add /media/batan/100/Music/70Rock/
+add /media/batan/100/Music/AussiePubRockEssentials/
+add /media/batan/100/Podcasts/
