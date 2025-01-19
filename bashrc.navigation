@@ -1,0 +1,106 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+#{{{ >>> If using SuperFile cd to the last directory you were in SuperFIle
+###  SPF cd on QUIT
+spf() {
+    os=$(uname -s)
+
+    # Linux
+    if [[ "$os" == "Linux" ]]; then
+        export SPF_LAST_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/superfile/lastdir"
+    fi
+
+    # macOS
+    if [[ "$os" == "Darwin" ]]; then
+        export SPF_LAST_DIR="$HOME/Library/Application Support/superfile/lastdir"
+    fi
+
+    command spf "$@"
+
+    [ ! -f "$SPF_LAST_DIR" ] || {
+        . "$SPF_LAST_DIR"
+        rm -f -- "$SPF_LAST_DIR" > /dev/null
+    }
+}
+#}}}
+#{{{ >>> The Keys "oo" are aliased to cd to previous directory
+	# Check if PWD and OLDPWD are not equal, and set alias 'oo' to switch to OLDPWD
+PROMPT_COMMAND='
+if [[ "$PWD" != "$OLDPWD" ]]; then
+    alias oo="cd $OLDPWD"
+else
+    unalias oo 2>/dev/null
+fi
+'$PROMPT_COMMAND
+#}}}
+#{{{ >>> "l" aliased to new lc command triggers fzf directory menu
+alias l='lc'
+#}}}
+#{{{ >>> "cc" aliased to cd .. clear screen and dosplay files and directories
+alias cc="cd .. && clear && ls -a && echo -e '\033[34m=========================================\033[0m'"
+#}}}
+#{{{ >>> "na" aliased to custom directory menu ### WORK in PROGRESS  #
+#############################################################
+option_smenu="Directories Files Both"
+action_smenu="Edit Execute Play Download"
+na () {
+clear 
+while :; 
+do
+	abc=$(echo -e "QUIT\n../\n$(ls -d */)" | smenu -c -n10 -m "Directory to navigate to:") 
+ if [[ $abc == QUIT ]]; then
+	 clear
+	 tput cup 6 0
+	 echo -e "\033[32mCurrent Directory: \033[37m$(pwd)\033[0m"
+ echo -e "\033[34m====================================================\033[0m"
+	 echo -e "\033[32mSub-Directories: \033[33m"
+	 ls -d */
+ echo -e "\033[34m====================================================\033[0m"
+	 echo -e "\033[32mFiles: \033[33m"
+	 find . -maxdepth 1 -type f |sed 's/\.\///g'
+ echo -e "\033[34m====================================================\033[0m"
+ tput cup 0 0
+ccc=$( echo $action_smenu|smenu -c -n10 -m "Select an Action:"|xargs)
+if [[ $ccc == Edit ]];
+then
+	clear
+	ddd=$(find . -maxdepth 1 -type f |sed 's!\.\/!!g'|smenu -c -n 10 -m "Select a file to edit:"|xargs)
+	vim $ddd
+
+	elif [[ $ccc == Execute ]];
+then
+	clear
+	ddd=$(find . -maxdepth 1 -type f |sed 's!\.\/!!g'|smenu -c -n 10 -m "Select a file to execute:"|xargs)
+	sudo -u batan bash $ddd
+elif [[ $ccc == Play ]];
+then
+	clear
+	ddd=$(find . -maxdepth 1 -type f |sed 's!\.\/!!g'|smenu -c -n 10 -m "Select a file to play:"|xargs)
+	play $ddd
+elif [[ $ccc == Download ]];
+then
+	clear
+/usr/bin/lc-download
+fi
+
+ break
+ fi
+ cd "$abc" 
+ clear
+done
+}
+#}}}
+#{{{ >>> Directory bookmarks m= marks current directory, b cd's back to m
+#######################
+# m marks the current directory
+# b cd's back to m at any time during the same session
+xxx=$(pwd)
+alias m="bash && xxx=$(pwd)"
+b() {
+	cd $xxx
+	clear
+	ls
+	echo -e "\033[34m=====================================================\033[0m"
+}
+#}}}
+	
+
