@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal Homepage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #AEAFB1;
+      color: #242424;
+    }
+
+    nav {
+      background-color: #105DCD;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      position: relative;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+
+    nav ul li:hover > ul {
+      display: block;
+    }
+
+    nav ul ul {
+      display: none;
+      position: absolute;
+      background-color: #545454;
+      padding: 10px;
+      list-style-type: none;
+      margin: 0;
+    }
+
+    nav ul ul li {
+      margin: 5px 0;
+    }
+
+    nav ul ul li a {
+      color: #FFFFFF;
+    }
+
+    .search-bar {
+      margin: 100px auto;
+      text-align: center;
+    }
+
+    .search-bar input[type="text"] {
+      width: 700px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #523D3D;
+      border-radius: 5px;
+    }
+
+    .search-bar button {
+      padding: 10px 15px;
+      background-color: #A09179;
+      border: none;
+      color: #FFFFFF;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #FFFFFF;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 90%;
+      width: 500px;
+    }
+
+    .close-modal {
+      cursor: pointer;
+      color: #523D3D;
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#">Menu 1</a>
+        <ul>
+          <li><a href="#">Submenu 1-1</a></li>
+          <li><a href="#">Submenu 1-2</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Menu 2</a>
+        <ul>
+          <li><a href="#">Submenu 2-1</a></li>
+          <li><a href="#">Submenu 2-2</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Menu 3</a>
+        <ul>
+          <li><a href="#">Submenu 3-1</a></li>
+          <li><a href="#">Submenu 3-2</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Menu 4</a>
+        <ul>
+          <li><a href="#">Submenu 4-1</a></li>
+          <li><a href="#">Submenu 4-2</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+  <img src="assets/image.png" alt="Example Image" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+  <form action="https://duckduckgo.com/" method="get">
+    <input type="text" name="q" placeholder="Search with DuckDuckGo...">
+    <button type="submit">Search</button>
+  </form>
+</div>
+
+  <hr>
+  <button onclick="openModal()">Open Calendar</button>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    // Modal functionality
+    const modal = document.getElementById('modal');
+    const closeModal = document.getElementById('closeModal');
+    const modalBody = document.getElementById('modal-body');
+
+    function openModal() {
+      fetch('calendar/calendar.html')
+        .then(response => response.text())
+        .then(data => {
+          modalBody.innerHTML = data;
+          modal.style.display = 'flex';
+        })
+        .catch(err => {
+          modalBody.innerHTML = '<p>Error loading content.</p>';
+          modal.style.display = 'flex';
+        });
+    }
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.onclick = (event) => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+  </script>
+</body>
+
+</html>
+

@@ -1,0 +1,108 @@
+# modify_font
+#: the underline and strikethrough. The modifications can have the
+#:     modify_font underline_position -2
+#:     modify_font underline_thickness 150%
+#:     modify_font strikethrough_position 2px
+#: Additionally, you can modify the size of the cell in which each
+#:     modify_font cell_width 80%
+#:     modify_font cell_height -2px
+#:     modify_font baseline 3
+#: Note that modifying the baseline will automatically adjust the
+#: precedence. Also, the cursor colors are modified if the cell
+#:     Confirm the paste if bracketed paste mode is not active or there is more
+#:     mouse_map button-name event-type modes action
+#: added keyboard modifiers. For example: ctrl+shift+left refers to
+#: click, doubleclick. modes indicates whether the action is performed
+#: interactive mode and reads its startup rc files.
+#: Finally, the path to a python module can be specified that provides
+#:     Python stdlib venv module and allows cloning venvs automatically.
+#: For modifier keys, the names are ctrl (control, ⌃), shift (⇧), alt
+#: (opt, option, ⌥), super (cmd, command, ⌘). See also: GLFW mods
+#: <https://www.glfw.org/docs/latest/group__mods.html>
+#:     on_key_input: glfw key: 0x61 native_code: 0x61 action: PRESS mods: none text: 'a'
+#:     map kitty_mod+space no_op
+#:     map kitty_mod+f1 discard_event
+#:     map kitty_mod+e combine : new_window : next_layout
+kitty_mod ctrl+shift
+#: Special modifier key alias for default shortcuts. You can change
+#: kitty_mod.
+map kitty_mod+c copy_to_clipboard
+map kitty_mod+v paste_from_clipboard
+map kitty_mod+s  paste_from_selection
+map kitty_mod+o pass_selection_to_program
+#::      map kitty_mod+o pass_selection_to_program firefox
+#::      map kitty_mod+y new_window less @selection
+map kitty_mod+up    scroll_line_up
+map kitty_mod+k     scroll_line_up
+map kitty_mod+down    scroll_line_down
+map kitty_mod+j       scroll_line_down
+map kitty_mod+page_up scroll_page_up
+map kitty_mod+page_down scroll_page_down
+map kitty_mod+home scroll_home
+map kitty_mod+end scroll_end
+map kitty_mod+z scroll_to_prompt -1
+map kitty_mod+x scroll_to_prompt 1
+map kitty_mod+h show_scrollback
+map kitty_mod+g show_last_command_output
+map kitty_mod+enter new_window
+#::      map kitty_mod+y launch mutt
+map kitty_mod+n new_os_window
+map kitty_mod+w close_window
+map kitty_mod+] next_window
+map kitty_mod+[ previous_window
+map kitty_mod+f move_window_forward
+map kitty_mod+b move_window_backward
+map kitty_mod+` move_window_to_top
+map kitty_mod+r start_resizing_window
+map kitty_mod+1 first_window
+map kitty_mod+2 second_window
+map kitty_mod+3 third_window
+map kitty_mod+4 fourth_window
+map kitty_mod+5 fifth_window
+map kitty_mod+6 sixth_window
+map kitty_mod+7 seventh_window
+map kitty_mod+8 eighth_window
+map kitty_mod+9 ninth_window
+map kitty_mod+0 tenth_window
+map kitty_mod+f7 focus_visible_window
+map kitty_mod+f8 swap_with_window
+map kitty_mod+right next_tab
+map kitty_mod+left previous_tab
+map kitty_mod+t new_tab
+map kitty_mod+q close_tab
+map kitty_mod+. move_tab_forward
+map kitty_mod+, move_tab_backward
+map kitty_mod+alt+t set_tab_title
+map kitty_mod+l next_layout
+map kitty_mod+equal  change_font_size all +2.0
+map kitty_mod+plus   change_font_size all +2.0
+map kitty_mod+kp_add change_font_size all +2.0
+map kitty_mod+minus       change_font_size all -2.0
+map kitty_mod+kp_subtract change_font_size all -2.0
+map kitty_mod+backspace change_font_size all 0
+#:     map kitty_mod+f6 change_font_size all 10.0
+#:     map kitty_mod+f6 change_font_size current 10.0
+map kitty_mod+e open_url_with_hints
+map kitty_mod+p>f kitten hints --type path --program -
+map kitty_mod+p>shift+f kitten hints --type path
+map kitty_mod+p>l kitten hints --type line --program -
+map kitty_mod+p>w kitten hints --type word --program -
+map kitty_mod+p>h kitten hints --type hash --program -
+map kitty_mod+p>n kitten hints --type linenum
+map kitty_mod+p>y kitten hints --type hyperlink
+#: The hints kitten has many more modes of operation that you can map
+map kitty_mod+f1 show_kitty_doc overview
+map kitty_mod+f11 toggle_fullscreen
+map kitty_mod+f10 toggle_maximized
+map kitty_mod+u    kitten unicode_input
+map kitty_mod+f2 edit_config_file
+map kitty_mod+escape kitty_shell window
+map kitty_mod+a>m set_background_opacity +0.1
+map kitty_mod+a>l set_background_opacity -0.1
+map kitty_mod+a>1 set_background_opacity 1
+map kitty_mod+a>d set_background_opacity default
+map kitty_mod+delete clear_terminal reset active
+map kitty_mod+f5 load_config_file
+map kitty_mod+f6 debug_config
+#::  The first argument to send_text is the keyboard modes in which to
+#::  modes normal and application refer to the DECCKM cursor key mode

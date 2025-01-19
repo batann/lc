@@ -1,0 +1,38 @@
+
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color=fg:#8D8C9C,fg+:#8E9492,bg:#2B2E33,bg+:#2B2E33
+  --color=hl:#8D8C9C,hl+:#8D8C9C,info:#c4c477,marker:#8E9492
+  --color=prompt:#8E9492,spinner:#8E9492,pointer:#8E9492,header:#44adad
+  --color=border:#B9B6A7,scrollbar:#44adad,label:#44adad
+  --color=query:#d9d9d9
+  --border="sharp" --border-label=" [[[ LC-Linux ]]] " --border-label-pos="0" 
+  --padding="1" --margin="1" --prompt="->" --marker=">>"
+  --pointer="◆◆" --separator='─'  --scrollbar="│" --layout="reverse"
+  --info=default'
+#--preview-window="border-rounded"
+
+
+
+
+#export FZF_DEFAULT_OPTS="  --color=fg:#3A3DFF,fg+:#ddbf00,bg:#121212,bg+:#262626 \
+#  --color=hl:#1a7ada,hl+:#9ae6ff,info:#e0e000,marker:#3ee421 \
+#  --color=prompt:#1700af,spinner:#8306ff,pointer:#8000ff,header:#00bf06 \
+#  --color=border:#e31b1b,preview-fg:#cdba08,preview-bg:#575656 \
+#  --color=preview-label:#00857a,label:#3847ea,query:#d9d9d9,gutter:#050505 \
+#  --border='bold' --border-label='     LC-Linux Music     ' --border-label-pos='40' --preview='echo {}' --preview-window=down,2,'wrap' \
+#  --header="MP3 File to select:" \
+#  --padding='2' --margin='1' --prompt='' --marker='->' \
+#  --pointer='>>' --separator='─' --scrollbar='│' --info='inline'"
+#  # Display fzf menu and get the selected files
+selected_files=$(find /media/batan/100/Music -type f -name '*.mp3' | fzf --preview '{}' --header-lines=1)
+
+# Check if any files were selected
+if [ -n "$selected_files" ]; then
+  # Play the selected files
+  for file in $selected_files; do
+    play "$file"
+  done
+else
+  echo "No files selected."
+fi
+

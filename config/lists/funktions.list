@@ -1,0 +1,4 @@
+abc=$(cat mp4.list |fzf) && find /media/batan/100/Videos/ -type f -name *$abc* -exec mpv {} \;  
+
+abc=$(cat mp3.list |fzf) && find /media/batan/100/Music/ -type f -name *$abc* -exec mpv {} \;
+

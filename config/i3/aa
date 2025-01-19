@@ -1,0 +1,19 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+
+set $mod Mod1
+font pango:share tech mono 10
+
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id nm-applet
+set $refresh_i3status killall -SIGUSR1 i3status
+
+
+# LC-STARTUP SCRIPTS
+exec --no-startup-id /usr/bin/lc-caps
+exec --no-startup-id /usr/bin/lc-i3-startup
+exec --no-startup-id /usr/bin/lc-i3_autotiling &
+
+# SOURCE CONF.D FILES
+
+
